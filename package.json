@@ -1,13 +1,15 @@
 {
   "name": "nextjs_stream_demo",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "api/index.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node api/index.js",
+    "dev": "node api/index.js",
+    "vercel-build": "echo 'Build complete'"
   },
   "repository": {
     "type": "git",
@@ -24,8 +26,11 @@
     "url": "https://github.com/liyown/nextjs_stream_demo/issues"
   },
   "homepage": "https://github.com/liyown/nextjs_stream_demo#readme",
-  "description": "",
+  "description": "Next.js流式传输和Suspense原理演示项目",
+  "engines": {
+    "node": ">=14.0.0"
+  },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^4.18.2"
   }
 }
