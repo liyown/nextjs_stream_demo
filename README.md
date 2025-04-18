@@ -1,6 +1,6 @@
 # Next.js 流式传输与 Suspense 技术深度详解：原理、实战
 
-[demo演示的地址](https://nextjs-stream-demo-gee785lo3-wenchicos-projects.vercel.app/)
+[demo演示的地址](https://nextjs-stream-demo.vercel.app/)
 
 在现代 Web 开发中，用户期望获得即时响应和流畅的体验。为了满足这一需求，前端框架不断进化，性能优化成为核心议题。Next.js 作为领先的 React 框架，提供了强大的流式传输（Streaming）和 Suspense 功能，它们是构建高性能、用户体验卓越的应用程序的关键。本教程将带你深入理解这些技术的工作原理、演进过程，并通过实战代码解析，助你掌握在 Next.js 应用中运用流式渲染的艺术。
 
@@ -759,7 +759,7 @@ RSC、流式传输、Suspense 和选择性水合共同工作，创造了极致�
 ## 10\. 实战项目与学习资源
 
   * **使用演示项目** 
-      * [访问演示项目链接](https://nextjs-stream-demo-gee785lo3-wenchicos-projects.vercel.app/)
+      * [访问演示项目链接](https://nextjs-stream-demo.vercel.app/)
       * 打开浏览器开发者工具（通常按 F12）。
       * 切换到 **Network (网络)** 面板，选中 `Doc` 或 `HTML` 过滤器，刷新页面。观察 `/blog-basic-streaming` 或 `/profile-modern-streaming` 请求。你会看到请求的响应时间很长，并且在 "Response (响应)" 标签页中，内容是分块出现的。注意 `Transfer-Encoding: chunked` 头部。
       * 切换到 **Elements (元素)** 面板，观察 DOM 在接收到流式块后的变化，特别是 Suspense 边界处 `fallback` UI 被实际内容替换的过程。
