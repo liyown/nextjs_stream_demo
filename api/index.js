@@ -3,19 +3,17 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-// 导入博客HTML路由
-const blogHtmlRouter = require('./blog-html');
 
 // 静态文件服务
 app.use(express.static(path.join(__dirname, '../')));
 
-// 添加博客HTML路由
-app.use('/blog-html', blogHtmlRouter);
 
 // 原始路由 - 使用直接的$RC函数实现
 app.get('/blog', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Transfer-Encoding', 'chunked');
+  res.setHeader('X-Accel-Buffering', 'no'); // 阻止Nginx缓冲
+  res.setHeader('Cache-Control', 'no-cache, no-transform');
 
   // 发送初始HTML和第一个Suspense fallback
   res.write(`
@@ -139,6 +137,8 @@ app.get('/blog', (req, res) => {
 app.get('/next-demo', (req, res) => {
   res.setHeader('Content-Type', 'text/html');
   res.setHeader('Transfer-Encoding', 'chunked');
+  res.setHeader('X-Accel-Buffering', 'no'); // 阻止Nginx缓冲
+  res.setHeader('Cache-Control', 'no-cache, no-transform');
 
   // 发送初始HTML和Suspense fallback
   res.write(`
@@ -283,7 +283,7 @@ app.get('/', (req, res) => {
       <div class="card">
         <h2>项目文档</h2>
         <p>详细了解Next.js流式传输和Suspense原理，请查看我们的教程文档。</p>
-        <a href="/blog-html" class="button">查看教程文档</a>
+        <a href="https://github.com/liyown/nextjs_stream_demo" class="button">查看教程文档</a>
       </div>
     </body>
     </html>
